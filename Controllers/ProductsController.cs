@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Review1_NET.Models;
+using Microsoft.EntityFrameworkCore;
+
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Review1_NET.Controllers
@@ -28,6 +30,12 @@ namespace Review1_NET.Controllers
             db.Products.Add(product);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int id)
+        {
+            Product model = db.Products.FirstOrDefault(product=>product.ProductId==id);
+            return View(model);
         }
     }
 }
