@@ -14,7 +14,8 @@ namespace Review1_NET.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            List<Product> myProducts = db.Products.ToList();
+            return View(myProducts);
         }
 
         public IActionResult Create()
@@ -24,7 +25,9 @@ namespace Review1_NET.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            return View();   
+            db.Products.Add(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

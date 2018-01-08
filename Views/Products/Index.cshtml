@@ -1,19 +1,15 @@
 ﻿@{Layout="_Layout";}
+@model IEnumerable<Review1_NET.Models.Product>
 
-<div>
-    <h5>Welcome Consumer!</h5>
-    <table style="width:100%;" border="1" cellpadding="5px">
-        <tr><th colspan="2">@Html.ActionLink("HOME","Index","Home")</th></tr>
-        <tr style="height:500px">
-            <td valign="top" width="25%">
-                <ul>
-                </ul>
-            </td>
-            <td valign="top">
-                <p>
-                </p> 
-            </td>
-        </tr>
-    </table>
+<ul>
+    <li>@Html.ActionLink("Add Product","Create","Products")</li>
+</ul>
 
-</div>
+<h5>@Html.DisplayNameForModel()</h5>
+<ol>
+    @foreach(var product in Model)
+    {
+        <li>@Html.DisplayFor(model=>product.Name)</li>
+    }
+</ol> 
+            
