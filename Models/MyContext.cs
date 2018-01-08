@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Review1_NET.Models.Models
+namespace Review1_NET.Models
 {
     public class MyContext : DbContext
     {
@@ -14,7 +14,7 @@ namespace Review1_NET.Models.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySql(@"Server=localhost;Port=8889;database=ToDoListWithMigrations;uid=root;pwd=root;");
+            options.UseMySql(@"Server=localhost;Port=8889;database=Review1-NET;uid=root;pwd=root;");
         }
 
         public MyContext(DbContextOptions<MyContext> options)

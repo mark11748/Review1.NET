@@ -29,7 +29,7 @@ namespace Review1_NET
             public void ConfigureServices(IServiceCollection services)
             {
                 services.AddEntityFramework()
-                    .AddDbContext<ToDoDbContext>(options =>
+                    .AddDbContext<MyContext>(options =>
                         options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
             }
 

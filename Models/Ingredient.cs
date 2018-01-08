@@ -1,16 +1,16 @@
-﻿//using System;
-//using System.ComponentModel.DataAnnotations;
-//using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
-//namespace Review1NET.Models
-//{
-//    [Table("Ingredients")]
-//    public class Ingredient
-//    {
-//        public Ingredient()
-//        {
-//        }
-
-
-//    }
-//}
+namespace Review1_NET.Models
+{
+    [Table("Ingredients")]
+    public class Ingredient
+    {
+        [Key]
+        public int IngredientId { get; set; }
+//        public int ProductId { get; set; }
+//        public string Name { get; set; }
+    }
+}
