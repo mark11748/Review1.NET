@@ -32,10 +32,34 @@ namespace Review1_NET.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Update(int id)
+        {
+            return View( db.Products.FirstOrDefault(product => product.ProductId == id) );
+        }
+        [HttpPost, ActionName("Update")]
+        public IActionResult UpdateConfirmed(int id)
+        {
+            var editedProduct = db.Products.FirstOrDefault(product => product.ProductId == id);
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Details(int id)
         {
             Product model = db.Products.FirstOrDefault(product=>product.ProductId==id);
             return View(model);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            return View();
+        }
+        [HttpPost,ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var unwantedProduct = db.Products.FirstOrDefault(product=>product.ProductId==id);
+            db.Products.Remove(unwantedProduct);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
