@@ -36,10 +36,11 @@ namespace Review1_NET.Controllers
         {
             return View( db.Products.FirstOrDefault(product => product.ProductId == id) );
         }
-        [HttpPost, ActionName("Update")]
-        public IActionResult UpdateConfirmed(int id)
+        [HttpPost]
+        public IActionResult Update(Product product)
         {
-            var editedProduct = db.Products.FirstOrDefault(product => product.ProductId == id);
+            db.Entry(product).State = EntityState.Modified;
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
