@@ -13,6 +13,7 @@
     <Folder Include="Views\Products\" />
     <Folder Include="Views\Ingredients\" />
     <Folder Include="Views\Shared\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
